@@ -6,15 +6,19 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
 }
 
 h1 {
-  color: #1a1a1a; /* Cor do texto */
+  color: #1a1a1a;
   text-align: center;
   text-transform: uppercase;
   font-size: 2.5em;
-  margin-bottom: 64px;
+}
+
+p {
+  max-width: 360px;
+  text-align: center;
 }
 
 form {
@@ -22,6 +26,7 @@ form {
   flex-direction: column;
   align-items: flex-start;
   gap: 42px;
+  margin-top: 48px;
 }
 
 .inputItem {
