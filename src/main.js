@@ -1,26 +1,23 @@
-const setYearOptions = () => {
-    let yearOptions = [];
-    for (let year = 2003; year <= 2022; year++) {
-        yearOptions.push(year);
+let yearOptions = [];
+for (let year = 2003; year <= 2022; year++) {
+    yearOptions.push(year);
+}
+
+// Create an option element for each year
+let selectTable = document.getElementById('yearFilterTable');
+let selectTeams = document.getElementById('yearFilterTeams');
+let selects = [selectTable, selectTeams];
+
+selects.forEach(select => {
+    for (let i = yearOptions.length - 1; i >= 0; i--) {
+        let option = document.createElement('option');
+        option.value = yearOptions[i];
+        option.text = yearOptions[i];
+        select.appendChild(option);
     }
+});
 
-    // Create an option element for each year
-    let selectTable = document.getElementById('yearFilterTable');
-    let selectTeams = document.getElementById('yearFilterTeams');
-    let selects = [selectTable, selectTeams];
-
-    selects.forEach(select => {
-        for (let i = yearOptions.length - 1; i >= 0; i--) {
-            let option = document.createElement('option');
-            option.value = yearOptions[i];
-            option.text = yearOptions[i];
-            select.appendChild(option);
-        }
-    });
-};
-
-const setTeamOptions = () => {
-    let teamOptions = ["Team1", "Team2", "Team3", "Team4", "Team5"];
+let teamOptions = ["Team1", "Team2", "Team3", "Team4", "Team5"];
 
     // Create an option element for each team
     let selectTeam = document.getElementById('teamFilter');
@@ -30,21 +27,17 @@ const setTeamOptions = () => {
         option.text = teamOptions[i];
         selectTeam.appendChild(option);
     }
-};
 
 
 // Options button
 document.getElementById('btnTables').addEventListener('click', function() {
     document.getElementById('formTable').style.display = 'block';
     document.getElementById('formTeams').style.display = 'none';
-    setYearOptions();
 });
   
 document.getElementById('btnTeams').addEventListener('click', function() {
     document.getElementById('formTeams').style.display = 'block';
     document.getElementById('formTable').style.display = 'none';
-    setYearOptions();
-    setTeamOptions();
 });
 
 
