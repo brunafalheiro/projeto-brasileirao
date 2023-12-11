@@ -37,32 +37,75 @@
     </div>
 
     <div class="div-result">
-      <div class="container">
-        <div>
+      <div class="container" id="resultTeam" style="display: none;">
           <div class="team-name-div">
-            <p class="team-name">VASCO</p>
-            <p class="date">(2022)</p>
+            <p class="team-name">VASCO</p> <!--clube-->
+            <p class="date">(2022)</p> <!--ano-->
           </div>
           <div class="total-score-div">
             <p class="obj">Pontos totais:</p>
-            <p class="result">78</p>
+            <p class="result">78</p> <!--pontos totais-->
           </div>
           <div class="goals-made-div">
             <p class="obj">Gols feitos:</p>
-            <p class="result">62</p>
+            <p class="result">62</p> <!--gols feitos-->
           </div>
           <div class="goals-taken-div">
             <p class="obj">Gols sofridos:</p>
-            <p class="result">24</p>
+            <p class="result">24</p> <!--gols sofridos-->
           </div>
           <div class="manager-div">
             <p class="obj">Técnico(s):</p>
-            <p class="result">Maurício Barbieri</p>
-            <p class="result">Ramón Diaz</p>
+            <p class="result">Maurício Barbieri</p> <!--tecnico-->
+            <p class="result">Ramón Diaz</p> <!--tecnico-->
           </div>
-        </div>
       </div>
-    </div>
+
+      <div class="container" id="resultTable" style="display: none;">
+        <h2 style="text-align: center; margin-bottom: 32px;">Tabela <span class="yearSelectedTable"></span></h2>
+        <table id="table-result">
+          <thead>
+            <tr>
+              <th>Colocação</th>
+              <th>Clube</th>
+              <th>Pontos</th>
+              <th>Jogos</th>
+              <th>Vitórias</th>
+              <th>Empates</th>
+              <th>Derrotas</th>
+              <th>Gols feitos</th>
+              <th>Gols sofridos</th>
+              <th>Saldo de gols</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-result">
+            <tr>
+              <td>1º</td> <!--colocação-->
+              <td>Vasco</td> <!--clube-->
+              <td>78</td> <!--pontos totais-->
+              <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
+              <td>24</td> <!--vitorias-->
+              <td>6</td> <!--empates-->
+              <td>8</td> <!--derrotas-->
+              <td>62</td> <!--gols feitos-->
+              <td>24</td> <!--gols sofridos-->
+              <td>+38</td> <!--gols feitos - gols sofridos-->
+            </tr>
+            <tr>
+              <td>1º</td> <!--colocação-->
+              <td>Vasco</td> <!--clube-->
+              <td>78</td> <!--pontos totais-->
+              <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
+              <td>24</td> <!--vitorias-->
+              <td>6</td> <!--empates-->
+              <td>8</td> <!--derrotas-->
+              <td>62</td> <!--gols feitos-->
+              <td>24</td> <!--gols sofridos-->
+              <td>+38</td> <!--gols feitos - gols sofridos-->
+            </tr>
+          </tbody>
+        </table>
+      </div>
     <script src="main.js"></script>
   </body>
 </html>

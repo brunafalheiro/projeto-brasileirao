@@ -11,20 +11,19 @@ p {
 }
 
 .div-form {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: auto;
-  width: 100%;
-  max-width: 600px;
+  min-width: 400px;
 }
 
 .div-result {
   background-color: #00300b;
-  width: 50%;
-  height: 100%;
+  width: 60%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,11 +37,11 @@ p {
   padding-bottom: 32px;
   background-color: white;
   border-radius: 8px;
-  width: 360px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 360px;
 }
 
 .team-name-div, .total-score-div, .goals-made-div, .goals-taken-div, .manager-div {
@@ -69,6 +68,18 @@ p {
 .team-name, .date {
   font-weight: bold;
   font-size: 20px;
+}
+
+th, td {
+  padding: 4px 10px;
+}
+
+th {
+  font-size: 14px;
+}
+
+td {
+  text-align: center;
 }
 
 h1 {
