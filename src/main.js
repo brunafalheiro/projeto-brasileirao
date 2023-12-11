@@ -105,7 +105,7 @@ document.getElementById('formAdversary').addEventListener('submit', function(e) 
     document.getElementById('resultAdversary2').innerText = `${team2}`;
 
 
-    document.getElementsByClassName('resultWinsAdversary1')[0].innerText = `Vitórias ${team1}: 32`;
+    document.getElementsByClassName('resultWinsAdversary1')[0].innerText = `Vitórias ${team1}: 32`; // number only for tests, remove it and change to the correspondent value
     document.getElementsByClassName('resultWinsAdversary2')[0].innerText = `Vitórias ${team2}: 18`;
     document.getElementsByClassName('resultTies')[0].innerText = `Empates: 11`;
     document.getElementsByClassName('resultGoalsAdversary1')[0].innerText = `Gols ${team1}: 48`;
