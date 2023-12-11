@@ -17,6 +17,7 @@ selects.forEach(select => {
     }
 });
 
+// ADICIONAR AQUI TODOS OS TIMES
 let teamOptions = ["Team1", "Team2", "Team3", "Team4", "Team5"];
 
     // Create an option element for each team
