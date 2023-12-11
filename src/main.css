@@ -3,10 +3,72 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  height: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+.div-form {
+  width: 50%;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.div-result {
+  background-color: #00300b;
+  width: 50%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.div-result .container {
+  padding: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: white;
+  border-radius: 8px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-name-div, .total-score-div, .goals-made-div, .goals-taken-div, .manager-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 6px;
+}
+
+.team-name-div {
+  margin-bottom: 32px;
+}
+
+.obj {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.manager-div {
+  margin-bottom: 0;
+}
+
+.team-name, .date {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 h1 {
@@ -14,6 +76,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-size: 2.5em;
+  margin-bottom: 16px;
 }
 
 p {
@@ -25,8 +88,15 @@ form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 42px;
   margin-top: 48px;
+}
+
+form > * {
+  margin-bottom: 24px;
+}
+
+form > *:last-child {
+  margin-bottom: 0;
 }
 
 .inputItem {
@@ -38,8 +108,8 @@ form {
 
 label {
   font-weight: bold;
-  color: #1a1a1a; /* Cor do texto */
-  font-size: 1.2em;
+  color: #1a1a1a;
+  font-size: 16px;
 }
 
 select, button {
@@ -49,9 +119,9 @@ select, button {
   border: 2px solid #1a1a1a;
   border-radius: 5px;
   outline: none;
-  font-size: 1.1em;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in, color 0.2s ease-in;
 }
 
 select:focus {
@@ -68,4 +138,18 @@ button {
 
 button:hover {
   background-color: #00300b; 
+}
+
+.button-selected {
+  background-color: #00300b;
+  color: #fff;
+}
+
+.button-not-selected {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.button-not-selected:hover {
+  background-color: #00300b;
 }

@@ -4,25 +4,65 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-    <div>
-      <h1>Brasileirão</h1>
-      <p>Encontre estatísticas e dados do seu time do coração a cada ano.</p>
+    <div class="div-form">
+      <div>
+        <h1>Brasileirão</h1>
+        <p style="margin-bottom: 48px;">Encontre estatísticas e dados do seu time do coração.</p>
+      </div>
+
+      <button id="btnTables" style="margin-bottom: 8px;">Tabelas do campeonato</button>
+      <button id="btnTeams">Pesquisa por clube</button>
+  
+      <form id="formTable" style="display: none;">
+          <div class="inputItem">
+            <label for="year">Ano:</label>
+            <select id="yearFilterTable" name="Ano"></select>
+          </div>
+        <button type="submit">Procurar</button>
+      </form>
+
+      <form id="formTeams" style="display: none;">
+          <div class="inputItem">
+            <label for="year">Ano:</label>
+            <select id="yearFilterTeams" name="Ano"></select>
+          </div>
+  
+          <div class="inputItem">
+            <label for="team">Clube:</label>
+            <select id="teamFilter" name="Clube"></select>
+          </div>
+  
+        <button type="submit">Procurar</button>
+      </form>
     </div>
 
-    <form id="form">
-        <div class="inputItem">
-          <label for="year">Ano:</label>
-          <select id="yearFilter" name="Ano"></select>
+    <div class="div-result">
+      <div class="container">
+        <div>
+          <div class="team-name-div">
+            <p class="team-name">VASCO</p>
+            <p class="date">(2022)</p>
+          </div>
+          <div class="total-score-div">
+            <p class="obj">Pontos totais:</p>
+            <p class="result">78</p>
+          </div>
+          <div class="goals-made-div">
+            <p class="obj">Gols feitos:</p>
+            <p class="result">62</p>
+          </div>
+          <div class="goals-taken-div">
+            <p class="obj">Gols sofridos:</p>
+            <p class="result">24</p>
+          </div>
+          <div class="manager-div">
+            <p class="obj">Técnico(s):</p>
+            <p class="result">Maurício Barbieri</p>
+            <p class="result">Ramón Diaz</p>
+          </div>
         </div>
-
-        <div class="inputItem">
-          <label for="team">Clube:</label>
-          <select id="teamFilter" name="Clube"></select>
-        </div>
-
-      <button type="submit">Procurar</button>
-    </form>
-
+      </div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
