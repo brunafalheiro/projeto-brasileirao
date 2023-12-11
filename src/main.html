@@ -11,6 +11,7 @@
       </div>
 
       <button id="btnTables" style="margin-bottom: 8px;">Tabelas do campeonato</button>
+      <button id="btnAdversary" style="margin-bottom: 8px;">Confrontos diretos</button>
       <button id="btnTeams">Pesquisa por clube</button>
   
       <form id="formTable" style="display: none;">
@@ -34,14 +35,28 @@
   
         <button type="submit">Procurar</button>
       </form>
+      
+      <form id="formAdversary" style="display: none;">
+          <div class="inputItem">
+            <label for="team">Mandante:</label>
+            <select id="teamOneAdversary" name="Clube"></select>
+          </div>
+          <div class="inputItem">
+            <label for="team">Adversário:</label>
+            <select id="teamTwoAdversary" name="Clube"></select>
+          </div>
+  
+        <button type="submit">Procurar</button>
+      </form>
     </div>
 
     <div class="div-result">
-      <div class="container" id="resultTeam" style="display: none;">
-          <div class="team-name-div">
-            <p class="team-name teamSelectedTeam"></p>
-            <p class="date yearSelectedTeam"></p>
-          </div>
+      <div id="resultTeam" style="display: none;">
+        <div class="team-name-div">
+          <h2 class="team-name teamSelectedTeam" style="color: white; font-size: 36px;"></h2>
+          <h2 class="date yearSelectedTeam" style="color: white; font-size: 36px;"></h2>
+        </div>
+        <div class="container">
           <div class="total-score-div">
             <p class="obj">Pontos totais:</p>
             <p class="result">78</p> <!--pontos totais-->
@@ -55,14 +70,30 @@
             <p class="result">24</p> <!--gols sofridos-->
           </div>
           <div class="manager-div">
-            <p class="obj">Técnico(s):</p>
-            <p class="result">Maurício Barbieri</p> <!--tecnico-->
-            <p class="result">Ramón Diaz</p> <!--tecnico-->
+            <p class="obj">Saldo geral:</p>
+            <p class="result">38</p> <!--gols feitos - sofridos-->
           </div>
+        </div>
+      </div>
+
+      <div id="resultAdversary" style="display: none;">
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 32px;">
+          <h2 style="color: white; font-size: 36px;" id="resultAdversary1"></h2>
+          <h2 style="color: white; font-size: 36px;" id="resultAdversary2"></h2>
+        </div>
+        <div class="container">
+          <div style="display: flex; justify-content: flex-start; flex-direction: column; align-items: flex-start;">
+            <p class="resultWinsAdversary1" style="margin-bottom: 8px;">Vitórias Vasco: </p>            
+            <p class="resultWinsAdversary2" style="margin-bottom: 8px;">Vitórias Flamengo: </p>            
+            <p class="resultTies" style="margin-bottom: 8px;">Empates: </p>            
+            <p class="resultGoalsAdversary1" style="margin-bottom: 8px;">Gols Vasco: </p>            
+            <p class="resultGoalsAdversary2">Gols Flamengo: 12</p>            
+          </div>
+        </div>
       </div>
 
       <div id="resultTable" style="display: none;">
-        <h2 style="text-align: center; margin-bottom: 32px; color: white; font-size: 36px;">Tabela <span class="yearSelectedTable"></span></h2>
+        <h2 style="text-align: center; margin-bottom: 32px; color: white; font-size: 36px;">Tabela do Brasileirão <span class="yearSelectedTable"></span></h2>
         <div class="container">
           <table id="table-result">
             <thead>
@@ -80,18 +111,6 @@
               </tr>
             </thead>
             <tbody id="tbody-result">
-              <tr>
-                <td>1º</td> <!--colocação-->
-                <td>Vasco</td> <!--clube-->
-                <td>78</td> <!--pontos totais-->
-                <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
-                <td>24</td> <!--vitorias-->
-                <td>6</td> <!--empates-->
-                <td>8</td> <!--derrotas-->
-                <td>62</td> <!--gols feitos-->
-                <td>24</td> <!--gols sofridos-->
-                <td>+38</td> <!--gols feitos - gols sofridos-->
-              </tr>
               <tr>
                 <td>1º</td> <!--colocação-->
                 <td>Vasco</td> <!--clube-->

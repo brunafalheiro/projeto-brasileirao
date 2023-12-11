@@ -48,12 +48,9 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-bottom: 24px;
   gap: 6px;
-}
-
-.team-name-div {
-  margin-bottom: 32px;
 }
 
 .obj {

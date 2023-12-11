@@ -20,24 +20,44 @@ selects.forEach(select => {
 // ADICIONAR AQUI TODOS OS TIMES
 let teamOptions = ["Team1", "Team2", "Team3", "Team4", "Team5"];
 
-    // Create an option element for each team
-    let selectTeam = document.getElementById('teamFilter');
-    for (let i = 0; i < teamOptions.length; i++) {
-        let option = document.createElement('option');
-        option.value = teamOptions[i];
-        option.text = teamOptions[i];
-        selectTeam.appendChild(option);
-    }
+// Create an option element for each team
+let selectTeam = document.getElementById('teamFilter');
+let teamAdversary1 = document.getElementById('teamOneAdversary');
+let teamAdversary2 = document.getElementById('teamTwoAdversary');
+for (let i = 0; i < teamOptions.length; i++) {
+    let option1 = document.createElement('option');
+    option1.value = teamOptions[i];
+    option1.text = teamOptions[i];
+    selectTeam.appendChild(option1);
+
+    let option2 = document.createElement('option');
+    option2.value = teamOptions[i];
+    option2.text = teamOptions[i];
+    teamAdversary1.appendChild(option2);
+
+    let option3 = document.createElement('option');
+    option3.value = teamOptions[i];
+    option3.text = teamOptions[i];
+    teamAdversary2.appendChild(option3);
+}
 
 
 // Options button
 document.getElementById('btnTables').addEventListener('click', function() {
     document.getElementById('formTable').style.display = 'block';
     document.getElementById('formTeams').style.display = 'none';
+    document.getElementById('formAdversary').style.display = 'none';
 });
   
 document.getElementById('btnTeams').addEventListener('click', function() {
     document.getElementById('formTeams').style.display = 'block';
+    document.getElementById('formTable').style.display = 'none';
+    document.getElementById('formAdversary').style.display = 'none';
+});
+
+document.getElementById('btnAdversary').addEventListener('click', function() {
+    document.getElementById('formAdversary').style.display = 'block';
+    document.getElementById('formTeams').style.display = 'none';
     document.getElementById('formTable').style.display = 'none';
 });
 
@@ -55,6 +75,7 @@ document.getElementById('formTeams').addEventListener('submit', function(e) {
 
     document.getElementById('resultTeam').style.display = 'block';
     document.getElementById('resultTable').style.display = 'none';
+    document.getElementById('resultAdversary').style.display = 'none';
   },
 );
 
@@ -69,13 +90,40 @@ document.getElementById('formTable').addEventListener('submit', function(e) {
 
     document.getElementById('resultTeam').style.display = 'none';
     document.getElementById('resultTable').style.display = 'block';
+    document.getElementById('resultAdversary').style.display = 'none';
+  },
+);
+
+document.getElementById('formAdversary').addEventListener('submit', function(e) {
+    e.preventDefault();
+  
+    var team1 = document.getElementById('teamOneAdversary').value;
+    var team2 = document.getElementById('teamTwoAdversary').value;
+    // Realiza a busca
+
+    document.getElementById('resultAdversary1').innerText = `${team1}x`;
+    document.getElementById('resultAdversary2').innerText = `${team2}`;
+
+
+    document.getElementsByClassName('resultWinsAdversary1')[0].innerText = `Vitórias ${team1}: 32`;
+    document.getElementsByClassName('resultWinsAdversary2')[0].innerText = `Vitórias ${team2}: 18`;
+    document.getElementsByClassName('resultTies')[0].innerText = `Empates: 11`;
+    document.getElementsByClassName('resultGoalsAdversary1')[0].innerText = `Gols ${team1}: 48`;
+    document.getElementsByClassName('resultGoalsAdversary2')[0].innerText = `Gols ${team2}: 12`;
+
+    
+
+    document.getElementById('resultAdversary').style.display = 'block';
+    document.getElementById('resultTable').style.display = 'none';
+    document.getElementById('resultTeam').style.display = 'none';
   },
 );
 
 
 const btnTables = document.getElementById('btnTables');
 const btnTeams = document.getElementById('btnTeams');
-const buttons = [btnTables, btnTeams];
+const btnAdversary = document.getElementById('btnAdversary');
+const buttons = [btnTables, btnTeams, btnAdversary];
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         // Add the selected class to the clicked button and remove the not-selected class
