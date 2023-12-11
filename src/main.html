@@ -39,8 +39,8 @@
     <div class="div-result">
       <div class="container" id="resultTeam" style="display: none;">
           <div class="team-name-div">
-            <p class="team-name">VASCO</p> <!--clube-->
-            <p class="date">(2022)</p> <!--ano-->
+            <p class="team-name teamSelectedTeam"></p>
+            <p class="date yearSelectedTeam"></p>
           </div>
           <div class="total-score-div">
             <p class="obj">Pontos totais:</p>
@@ -61,50 +61,52 @@
           </div>
       </div>
 
-      <div class="container" id="resultTable" style="display: none;">
-        <h2 style="text-align: center; margin-bottom: 32px;">Tabela <span class="yearSelectedTable"></span></h2>
-        <table id="table-result">
-          <thead>
-            <tr>
-              <th>Colocação</th>
-              <th>Clube</th>
-              <th>Pontos</th>
-              <th>Jogos</th>
-              <th>Vitórias</th>
-              <th>Empates</th>
-              <th>Derrotas</th>
-              <th>Gols feitos</th>
-              <th>Gols sofridos</th>
-              <th>Saldo de gols</th>
-            </tr>
-          </thead>
-          <tbody id="tbody-result">
-            <tr>
-              <td>1º</td> <!--colocação-->
-              <td>Vasco</td> <!--clube-->
-              <td>78</td> <!--pontos totais-->
-              <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
-              <td>24</td> <!--vitorias-->
-              <td>6</td> <!--empates-->
-              <td>8</td> <!--derrotas-->
-              <td>62</td> <!--gols feitos-->
-              <td>24</td> <!--gols sofridos-->
-              <td>+38</td> <!--gols feitos - gols sofridos-->
-            </tr>
-            <tr>
-              <td>1º</td> <!--colocação-->
-              <td>Vasco</td> <!--clube-->
-              <td>78</td> <!--pontos totais-->
-              <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
-              <td>24</td> <!--vitorias-->
-              <td>6</td> <!--empates-->
-              <td>8</td> <!--derrotas-->
-              <td>62</td> <!--gols feitos-->
-              <td>24</td> <!--gols sofridos-->
-              <td>+38</td> <!--gols feitos - gols sofridos-->
-            </tr>
-          </tbody>
-        </table>
+      <div id="resultTable" style="display: none;">
+        <h2 style="text-align: center; margin-bottom: 32px; color: white; font-size: 36px;">Tabela <span class="yearSelectedTable"></span></h2>
+        <div class="container">
+          <table id="table-result">
+            <thead>
+              <tr>
+                <th>Colocação</th>
+                <th>Clube</th>
+                <th>Pontos</th>
+                <th>Jogos</th>
+                <th>Vitórias</th>
+                <th>Empates</th>
+                <th>Derrotas</th>
+                <th>Gols feitos</th>
+                <th>Gols sofridos</th>
+                <th>Saldo de gols</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-result">
+              <tr>
+                <td>1º</td> <!--colocação-->
+                <td>Vasco</td> <!--clube-->
+                <td>78</td> <!--pontos totais-->
+                <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
+                <td>24</td> <!--vitorias-->
+                <td>6</td> <!--empates-->
+                <td>8</td> <!--derrotas-->
+                <td>62</td> <!--gols feitos-->
+                <td>24</td> <!--gols sofridos-->
+                <td>+38</td> <!--gols feitos - gols sofridos-->
+              </tr>
+              <tr>
+                <td>1º</td> <!--colocação-->
+                <td>Vasco</td> <!--clube-->
+                <td>78</td> <!--pontos totais-->
+                <td>38</td> <!--jogos totais: fixo, sempre são 38 ao final do campeonato-->
+                <td>24</td> <!--vitorias-->
+                <td>6</td> <!--empates-->
+                <td>8</td> <!--derrotas-->
+                <td>62</td> <!--gols feitos-->
+                <td>24</td> <!--gols sofridos-->
+                <td>+38</td> <!--gols feitos - gols sofridos-->
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     <script src="main.js"></script>
   </body>

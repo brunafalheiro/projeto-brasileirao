@@ -50,6 +50,9 @@ document.getElementById('formTeams').addEventListener('submit', function(e) {
     var team = document.getElementById('teamFilter').value;
     // Realiza a busca
 
+    document.getElementsByClassName('teamSelectedTeam')[0].innerText = `${team}`;
+    document.getElementsByClassName('yearSelectedTeam')[0].innerText = ` (${year})`;
+
     document.getElementById('resultTeam').style.display = 'block';
     document.getElementById('resultTable').style.display = 'none';
   },
@@ -63,7 +66,7 @@ document.getElementById('formTable').addEventListener('submit', function(e) {
     // Realiza a busca
 
     document.getElementsByClassName('yearSelectedTable')[0].innerText = ` ${year}`;
-    console.log(document.getElementsByClassName('yearSelected'))
+
     document.getElementById('resultTeam').style.display = 'none';
     document.getElementById('resultTable').style.display = 'block';
   },
