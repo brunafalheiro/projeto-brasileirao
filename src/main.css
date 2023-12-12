@@ -1,3 +1,4 @@
+/* Reset styles */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -6,10 +7,12 @@ body {
   height: 100%;
 }
 
+/* Remove default margin from paragraphs */
 p {
   margin: 0;
 }
 
+/* Form container */
 .div-form {
   width: 40%;
   display: flex;
@@ -20,6 +23,24 @@ p {
   min-width: 400px;
 }
 
+/* Form */
+form {
+  animation: formAnimation 0.5s ease-in;
+}
+
+@keyframes formAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Result container */
 .div-result {
   background-color: #00300b;
   width: 60%;
@@ -29,8 +50,22 @@ p {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  animation: resultAnimation 0.5s ease-in;
 }
 
+@keyframes resultAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Result content container */
 .div-result .container {
   padding: 24px;
   padding-top: 32px;
@@ -44,7 +79,12 @@ p {
   min-width: 360px;
 }
 
-.team-name-div, .total-score-div, .goals-made-div, .goals-taken-div, .manager-div {
+/* Team info sections */
+.team-name-div,
+.total-score-div,
+.goals-made-div,
+.goals-taken-div,
+.manager-div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -53,21 +93,27 @@ p {
   gap: 6px;
 }
 
+/* Objectives */
 .obj {
   font-size: 16px;
   font-weight: bold;
 }
 
+/* Manager section */
 .manager-div {
   margin-bottom: 0;
 }
 
-.team-name, .date {
+/* Team name and date */
+.team-name,
+.date {
   font-weight: bold;
   font-size: 20px;
 }
 
-th, td {
+/* Table styles */
+th,
+td {
   padding: 4px 10px;
 }
 
@@ -79,6 +125,7 @@ td {
   text-align: center;
 }
 
+/* Heading styles */
 h1 {
   color: #1a1a1a;
   text-align: center;
@@ -87,11 +134,13 @@ h1 {
   margin-bottom: 16px;
 }
 
+/* Paragraph styles */
 p {
   max-width: 360px;
   text-align: center;
 }
 
+/* Form styles */
 form {
   display: flex;
   flex-direction: column;
@@ -107,6 +156,7 @@ form > *:last-child {
   margin-bottom: 0;
 }
 
+/* Input item styles */
 .inputItem {
   display: flex;
   flex-direction: column;
@@ -114,13 +164,16 @@ form > *:last-child {
   gap: 8px;
 }
 
+/* Label styles */
 label {
   font-weight: bold;
   color: #1a1a1a;
   font-size: 16px;
 }
 
-select, button {
+/* Select and button styles */
+select,
+button {
   width: 320px;
   height: 54px;
   padding: 8px;
@@ -132,32 +185,38 @@ select, button {
   transition: background-color 0.2s ease-in, color 0.2s ease-in;
 }
 
+/* Select focus style */
 select:focus {
   border-color: green;
 }
 
+/* Button styles */
 button {
   cursor: pointer;
-  background-color: #1a1a1a; 
+  background-color: #1a1a1a;
   color: #fff;
   border: none;
   text-transform: uppercase;
 }
 
+/* Button hover styles */
 button:hover {
-  background-color: #00300b; 
+  background-color: #00300b;
 }
 
+/* Selected button styles */
 .button-selected {
   background-color: #00300b;
   color: #fff;
 }
 
+/* Not selected button styles */
 .button-not-selected {
   background-color: #1a1a1a;
   color: #fff;
 }
 
+/* Not selected button hover styles */
 .button-not-selected:hover {
   background-color: #00300b;
 }
