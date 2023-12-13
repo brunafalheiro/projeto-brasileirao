@@ -319,34 +319,23 @@ document
     var parentElement = document.querySelector(".cards");
     parentElement.innerHTML = "";
 
-    // Para cada item em teste, cria um novo elemento filho
     for (var i = 0; i < cardsData.length; i++) {
-      var div = document.createElement("div");
-      div.className = "total-score-div";
+      var div = document.createElement('div');
+      div.className = 'total-score-div';
 
-      var p1 = document.createElement("p");
-      p1.className = "obj";
-      p1.innerText = "Jogador:";
+      var p1 = document.createElement('p');
+      p1.className = 'obj';
+      p1.innerText = cardsData[i].Nome;
 
-      var p2 = document.createElement("p");
-      p2.className = "result";
-      p2.innerText = cardsData[i].Nome;
-
-      var p3 = document.createElement("p");
-      p3.className = "obj";
-      p3.innerText = "Cartões amarelos:";
-
-      var p4 = document.createElement("p");
-      p4.className = "result";
-      p4.innerText = cardsData[i].cartoes.toString();
+      var p2 = document.createElement('p');
+      p2.className = 'result';
+      p2.innerText = cardsData[i].cartoes.toString();
 
       div.appendChild(p1);
       div.appendChild(p2);
-      div.appendChild(p3);
-      div.appendChild(p4);
 
       parentElement.appendChild(div);
-    }
+  }
 
     e.preventDefault();
     document.getElementById("resultAdversary").style.display = "none";
