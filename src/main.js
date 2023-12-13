@@ -68,7 +68,7 @@ let teamOptions = [
 let selectTeam = document.getElementById("teamFilter");
 let teamAdversary1 = document.getElementById("teamOneAdversary");
 let teamAdversary2 = document.getElementById("teamTwoAdversary");
-const teamManager = document.getElementById('teamManager');
+const teamManager = document.getElementById("teamManager");
 for (let i = 0; i < teamOptions.length; i++) {
   let option1 = document.createElement("option");
   option1.value = teamOptions[i];
@@ -84,7 +84,7 @@ for (let i = 0; i < teamOptions.length; i++) {
   option3.value = teamOptions[i];
   option3.text = teamOptions[i];
   teamAdversary2.appendChild(option3);
-  
+
   let option4 = document.createElement("option");
   option4.value = teamOptions[i];
   option4.text = teamOptions[i];
@@ -93,11 +93,16 @@ for (let i = 0; i < teamOptions.length; i++) {
 
 // Function to show the selected form and hide the others
 function showForm(formId) {
-    document.getElementById('formTable').style.display = formId === 'formTable' ? 'block' : 'none';
-    document.getElementById('formTeams').style.display = formId === 'formTeams' ? 'block' : 'none';
-    document.getElementById('formAdversary').style.display = formId === 'formAdversary' ? 'block' : 'none';
-    document.getElementById('formManager').style.display = formId === 'formManager' ? 'block' : 'none';
-    document.getElementById('formCards').style.display = formId === 'formCards' ? 'block' : 'none';
+  document.getElementById("formTable").style.display =
+    formId === "formTable" ? "block" : "none";
+  document.getElementById("formTeams").style.display =
+    formId === "formTeams" ? "block" : "none";
+  document.getElementById("formAdversary").style.display =
+    formId === "formAdversary" ? "block" : "none";
+  document.getElementById("formManager").style.display =
+    formId === "formManager" ? "block" : "none";
+  document.getElementById("formCards").style.display =
+    formId === "formCards" ? "block" : "none";
 }
 
 // Event listeners for the buttons
@@ -113,12 +118,12 @@ document.getElementById("btnAdversary").addEventListener("click", function () {
   showForm("formAdversary");
 });
 
-document.getElementById('btnManager').addEventListener('click', function() {
-    showForm('formManager');
+document.getElementById("btnManager").addEventListener("click", function () {
+  showForm("formManager");
 });
 
-document.getElementById('btnCards').addEventListener('click', function() {
-    showForm('formCards');
+document.getElementById("btnCards").addEventListener("click", function () {
+  showForm("formCards");
 });
 
 // Submit event listener for the teams form
@@ -162,8 +167,8 @@ document
   .addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    var parentElement = document.querySelector('#tbody-result');
-    parentElement.innerHTML = '';
+    var parentElement = document.querySelector("#tbody-result");
+    parentElement.innerHTML = "";
 
     var year = document.getElementById("yearFilterTable").value;
     // Perform the search
@@ -260,103 +265,116 @@ document
     document.getElementById("resultCards").style.display = "none";
   });
 
-document.getElementById('formManager').addEventListener('submit', async function(e) {
+document
+  .getElementById("formManager")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
+
     const team = document.getElementById("teamManager").value;
     document.getElementById("selectedTeamManager").innerText = `${team}`;
-    const teste = [{nome: "A"}, {nome: "B"}, {nome: "C"}];
-       // Seleciona o elemento pai
-       var parentElement = document.querySelector('.manager');
 
-       // Limpa o conteúdo existente
-       parentElement.innerHTML = '';
-   
-       // Para cada item em teste, cria um novo elemento filho
-       for (var i = 0; i < teste.length; i++) {
-           var div = document.createElement('div');
-           div.className = 'manager-div';
-   
-           var p = document.createElement('p');
-           p.className = 'manager-name';
-           p.innerText = teste[i].nome;
-   
-           div.appendChild(p);
-           parentElement.appendChild(div);
-       }
-    
+    const managerData = (
+      await axios.get(`http://localhost:3000/tecnico/${team}`)
+    ).data;
+
+    // Seleciona o elemento pai
+    var parentElement = document.querySelector(".manager");
+
+    // Limpa o conteúdo existente
+    parentElement.innerHTML = "";
+
+    // Para cada item em teste, cria um novo elemento filho
+    for (var i = 0; i < managerData.length; i++) {
+      var div = document.createElement("div");
+      div.className = "manager-div";
+
+      var p = document.createElement("p");
+      p.className = "manager-name";
+      p.innerText = managerData[i].Nome;
+
+      div.appendChild(p);
+      parentElement.appendChild(div);
+    }
+
     e.preventDefault();
     document.getElementById("resultAdversary").style.display = "none";
     document.getElementById("resultTable").style.display = "none";
     document.getElementById("resultTeam").style.display = "none";
     document.getElementById("resultManager").style.display = "block";
     document.getElementById("resultCards").style.display = "none";
-});
+  });
 
-document.getElementById('formCards').addEventListener('submit', async function(e) {
+document
+  .getElementById("formCards")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
+
     const card = document.getElementById("cardsInput").value;
     document.getElementById("selectedCard").innerText = `Cartão ${card}`;
 
     // Arbitrary data for cards
-    const teste = [{nome: "A", cartoes: 6}, {nome: "B", cartoes: 8}, {nome: "C", cartoes: 4}];
+    const cardsData = (await axios.get(`http://localhost:3000/cartoes/${card}`))
+      .data;
 
-    var parentElement = document.querySelector('.cards');
-    parentElement.innerHTML = '';
+    var parentElement = document.querySelector(".cards");
+    parentElement.innerHTML = "";
 
     // Para cada item em teste, cria um novo elemento filho
-    for (var i = 0; i < teste.length; i++) {
-        var div = document.createElement('div');
-        div.className = 'total-score-div';
+    for (var i = 0; i < cardsData.length; i++) {
+      var div = document.createElement("div");
+      div.className = "total-score-div";
 
-        var p1 = document.createElement('p');
-        p1.className = 'obj';
-        p1.innerText = 'Jogador:';
+      var p1 = document.createElement("p");
+      p1.className = "obj";
+      p1.innerText = "Jogador:";
 
-        var p2 = document.createElement('p');
-        p2.className = 'result';
-        p2.innerText = teste[i].nome;
+      var p2 = document.createElement("p");
+      p2.className = "result";
+      p2.innerText = cardsData[i].Nome;
 
-        var p3 = document.createElement('p');
-        p3.className = 'obj';
-        p3.innerText = 'Cartões amarelos:';
+      var p3 = document.createElement("p");
+      p3.className = "obj";
+      p3.innerText = "Cartões amarelos:";
 
-        var p4 = document.createElement('p');
-        p4.className = 'result';
-        p4.innerText = teste[i].cartoes.toString();
+      var p4 = document.createElement("p");
+      p4.className = "result";
+      p4.innerText = cardsData[i].cartoes.toString();
 
-        div.appendChild(p1);
-        div.appendChild(p2);
-        div.appendChild(p3);
-        div.appendChild(p4);
+      div.appendChild(p1);
+      div.appendChild(p2);
+      div.appendChild(p3);
+      div.appendChild(p4);
 
-        parentElement.appendChild(div);
+      parentElement.appendChild(div);
     }
 
-    
-    
     e.preventDefault();
     document.getElementById("resultAdversary").style.display = "none";
     document.getElementById("resultTable").style.display = "none";
     document.getElementById("resultTeam").style.display = "none";
     document.getElementById("resultManager").style.display = "none";
     document.getElementById("resultCards").style.display = "block";
-});
+  });
 
 // Add event listeners to the buttons for selection styling
-const btnTables = document.getElementById('btnTables');
-const btnTeams = document.getElementById('btnTeams');
-const btnAdversary = document.getElementById('btnAdversary');
-const btnManager = document.getElementById('btnManager');
-const btnCards = document.getElementById('btnCards');
+const btnTables = document.getElementById("btnTables");
+const btnTeams = document.getElementById("btnTeams");
+const btnAdversary = document.getElementById("btnAdversary");
+const btnManager = document.getElementById("btnManager");
+const btnCards = document.getElementById("btnCards");
 const buttons = [btnTables, btnTeams, btnAdversary, btnManager, btnCards];
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Add the selected class to the clicked button and remove the not-selected class
-        button.classList.add('button-selected');
-        button.classList.remove('button-not-selected');
-    
-        // Add the not-selected class to all other buttons and remove the selected class
-        buttons.filter(btn => btn !== button).forEach(btn => {
-          btn.classList.add('button-not-selected');
-          btn.classList.remove('button-selected');
-        });
-    });
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    // Add the selected class to the clicked button and remove the not-selected class
+    button.classList.add("button-selected");
+    button.classList.remove("button-not-selected");
+
+    // Add the not-selected class to all other buttons and remove the selected class
+    buttons
+      .filter((btn) => btn !== button)
+      .forEach((btn) => {
+        btn.classList.add("button-not-selected");
+        btn.classList.remove("button-selected");
+      });
+  });
 });
