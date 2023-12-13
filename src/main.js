@@ -315,27 +315,30 @@ document
     // Arbitrary data for cards
     const cardsData = (await axios.get(`http://localhost:3000/cartoes/${card}`))
       .data;
+    cardsData.sort((a, b) => a.cartoes < b.cartoes);
 
+    console.log(cardsData);
     var parentElement = document.querySelector(".cards");
     parentElement.innerHTML = "";
 
-    for (var i = 0; i < cardsData.length; i++) {
-      var div = document.createElement('div');
-      div.className = 'total-score-div';
+    for (var i = 0; i < 15; i++) {
+      console.log(cardsData[i].Nome);
+      var div = document.createElement("div");
+      div.className = "total-score-div";
 
-      var p1 = document.createElement('p');
-      p1.className = 'obj';
+      var p1 = document.createElement("p");
+      p1.className = "obj";
       p1.innerText = cardsData[i].Nome;
 
-      var p2 = document.createElement('p');
-      p2.className = 'result';
+      var p2 = document.createElement("p");
+      p2.className = "result";
       p2.innerText = cardsData[i].cartoes.toString();
 
       div.appendChild(p1);
       div.appendChild(p2);
 
       parentElement.appendChild(div);
-  }
+    }
 
     e.preventDefault();
     document.getElementById("resultAdversary").style.display = "none";
