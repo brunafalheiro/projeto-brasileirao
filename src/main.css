@@ -84,7 +84,8 @@ form {
 .total-score-div,
 .goals-made-div,
 .goals-taken-div,
-.total-goals-div {
+.total-goals-div,
+.cards-div {
   display: flex;
   flex-direction: row;
   align-items: center;

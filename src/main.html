@@ -12,7 +12,9 @@
 
       <button id="btnTables" style="margin-bottom: 8px;">Tabelas do campeonato</button>
       <button id="btnAdversary" style="margin-bottom: 8px;">Confrontos diretos</button>
-      <button id="btnTeams">Pesquisa por clube</button>
+      <button id="btnTeams" style="margin-bottom: 8px;">Estatísticas por clube</button>
+      <button id="btnManager" style="margin-bottom: 8px;">Técnicos por clube</button>
+      <button id="btnCards">Pesquisa de Cartões</button>
   
       <form id="formTable" style="display: none;">
           <div class="inputItem">
@@ -42,6 +44,27 @@
           </div>
   
         <button type="submit">Procurar</button>
+      </form>
+      
+      <form id="formManager" style="display: none;">
+        <div class="inputItem">
+          <label for="team">Clube:</label>
+          <select id="teamManager" name="Clube"></select>
+        </div>
+
+      <button type="submit">Procurar</button>
+      </form>
+      
+      <form id="formCards" style="display: none;">
+        <div class="inputItem">
+          <label for="team">Cartão:</label>
+          <select id="cardsInput" name="Cartão">
+            <option value="vermelho">Vermelho</option>
+            <option value="amarelo">Amarelo</option>
+          </select>
+        </div>
+
+      <button type="submit">Procurar</button>
       </form>
     </div>
 
@@ -109,6 +132,21 @@
           </table>
         </div>
       </div>
+
+      <div id="resultManager" style="display: none;">
+        <div class="container">AAAAAAAAAAAAA</div>
+      </div>
+      <div id="resultCards" style="display: none;">
+
+          <div class="cards-div">
+            <h2 id="selectedCard" style="color: white; font-size: 36px;"></h2>
+          </div>
+          <div class="container cards">
+
+          </div>
+
+      </div>
+
       <script type="module" src="main.js"></script>
     </body>
 </html>
