@@ -99,6 +99,10 @@ form {
   font-weight: bold;
 }
 
+.obj, .result {
+  text-align: left;
+}
+
 /* Team name and date */
 .team-name,
 .manager-name
