@@ -84,7 +84,7 @@ form {
 .total-score-div,
 .goals-made-div,
 .goals-taken-div,
-.manager-div {
+.total-goals-div {
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -73,7 +73,7 @@ document.getElementById('formTeams').addEventListener('submit', function(e) {
     document.querySelector('.total-score-div .result').innerText = teamData[0];
     document.querySelector('.goals-made-div .result').innerText = teamData[1];
     document.querySelector('.goals-taken-div .result').innerText = teamData[2];
-    document.querySelector('.manager-div .result').innerText = teamData[3];
+    document.querySelector('.total-goals-div .result').innerText = teamData[3];
 
     // Show the team result and hide the others
     document.getElementById('resultTeam').style.display = 'block';
