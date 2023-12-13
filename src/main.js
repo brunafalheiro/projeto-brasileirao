@@ -16,7 +16,7 @@ for (let i = yearOptions.length - 1; i >= 0; i--) {
 }
 
 // Array of team options
-let teamOptions = ["Vasco", "Team2", "Team3", "Team4", "Team5"];
+let teamOptions = ["Vasco", "Flamengo", "Fluminense", "Botafogo-RJ", "Team5"];
 
 // Create an option element for each team and append it to the respective select elements
 let selectTeam = document.getElementById("teamFilter");
@@ -80,10 +80,14 @@ document
       .data[0];
 
     // Update the HTML elements with the team data
-    // document.querySelector(".total-score-div .result").innerText = teamData[0];
-    // document.querySelector(".goals-made-div .result").innerText = teamData[1];
-    // document.querySelector(".goals-taken-div .result").innerText = teamData[2];
-    // document.querySelector(".total-goals-div .result").innerText = teamData[3];
+    document.querySelector(".total-score-div .result").innerText =
+      teamData.pontos_acumulados;
+    document.querySelector(".goals-made-div .result").innerText =
+      teamData.Gols_Feitos;
+    document.querySelector(".goals-taken-div .result").innerText =
+      teamData.Gols_sofridos;
+    document.querySelector(".total-goals-div .result").innerText =
+      teamData.saldo_geral;
 
     // Show the team result and hide the others
     document.getElementById("resultTeam").style.display = "block";
@@ -107,10 +111,24 @@ document
     // Arbitrary data for multiple rows
     const rowsData = (
       await axios.get(`http://localhost:3000/campeonato/${year}`)
-    ).data[0];
+    ).data;
+
+    const arrayedRows = rowsData.map((row) => {
+      return [
+        row.Nome,
+        row.PONTOS_ACUMULADOS,
+        row.JOGOS,
+        row.VITORIAS,
+        row.DERROTAS,
+        row.EMPATES,
+        row.GOLS_FEITOS,
+        row.GOLS_SOFRIDOS,
+        row.GOLS_FEITOS - row.GOLS_SOFRIDOS,
+      ];
+    });
 
     // Create and append the rows to the table
-    for (var i = 0; i < rowsData.length; i++) {
+    for (var i = 0; i < arrayedRows.length; i++) {
       var row = document.createElement("tr");
 
       // Add the placement as the first cell
@@ -119,16 +137,15 @@ document
       row.appendChild(placementCell);
 
       // Add the other cells
-      for (var j = 0; j < rowsData[i].length; j++) {
+      for (var j = 0; j < arrayedRows[i].length; j++) {
         var cell = document.createElement("td");
-        cell.innerText = rowsData[i][j];
+        cell.innerText = arrayedRows[i][j];
         row.appendChild(cell);
       }
 
       // Append the row to the table
       document.getElementById("tbody-result").appendChild(row);
     }
-
     // Show the table result and hide the others
     document.getElementById("resultTeam").style.display = "none";
     document.getElementById("resultTable").style.display = "block";
@@ -149,23 +166,25 @@ document
     document.getElementById("resultAdversary2").innerText = `${team2}`;
 
     const adversaryData = (
-      await axios.get(`http://localhost:3000/confronto/${team2}/${team2}}`)
+      await axios.get(`http://localhost:3000/confronto/${team1}/${team2}`)
     ).data[0];
 
     // Arbitrary data for adversary comparison
     document.getElementsByClassName(
       "resultWinsAdversary1"
-    )[0].innerText = `Vitórias ${team1}: 32`; // number only for tests, remove it and change to the corresponding value
+    )[0].innerText = `Vitórias ${team1}: ${adversaryData.VitoriasPrimeiro}`;
     document.getElementsByClassName(
       "resultWinsAdversary2"
-    )[0].innerText = `Vitórias ${team2}: 18`;
-    document.getElementsByClassName("resultTies")[0].innerText = `Empates: 11`;
+    )[0].innerText = `Vitórias ${team2}: ${adversaryData.VitoriasSegundo}`;
+    document.getElementsByClassName(
+      "resultTies"
+    )[0].innerText = `Empates: ${adversaryData.Empates}`;
     document.getElementsByClassName(
       "resultGoalsAdversary1"
-    )[0].innerText = `Gols ${team1}: 48`;
+    )[0].innerText = `Gols ${team1}: ${adversaryData.GolsPrimeiro}}`;
     document.getElementsByClassName(
       "resultGoalsAdversary2"
-    )[0].innerText = `Gols ${team2}: 12`;
+    )[0].innerText = `Gols ${team2}: ${adversaryData.GolsSegundo}}}`;
 
     // Show the adversary result and hide the others
     document.getElementById("resultAdversary").style.display = "block";
