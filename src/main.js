@@ -16,7 +16,53 @@ for (let i = yearOptions.length - 1; i >= 0; i--) {
 }
 
 // Array of team options
-let teamOptions = ["Vasco", "Flamengo", "Fluminense", "Botafogo-RJ", "Team5"];
+let teamOptions = [
+  "America-MG",
+  "America-RN",
+  "Athletico-PR",
+  "Atletico-GO",
+  "Atletico-MG",
+  "Avai",
+  "Bahia",
+  "Barueri",
+  "Botafogo-RJ",
+  "Bragantino",
+  "Brasiliense",
+  "Ceara",
+  "Chapecoense",
+  "Corinthians",
+  "Coritiba",
+  "Criciuma",
+  "Cruzeiro",
+  "CSA",
+  "Cuiaba",
+  "Figueirense",
+  "Flamengo",
+  "Fluminense",
+  "Fortaleza",
+  "Goias",
+  "Gremio",
+  "Gremio Prudente",
+  "Guarani",
+  "Internacional",
+  "Ipatinga",
+  "Joinville",
+  "Juventude",
+  "Nautico",
+  "Palmeiras",
+  "Parana",
+  "Paysandu",
+  "Ponte Preta",
+  "Portuguesa",
+  "Santa Cruz",
+  "Santo Andre",
+  "Santos",
+  "Sao Caetano",
+  "Sao Paulo",
+  "Sport",
+  "Vasco",
+  "Vitoria",
+];
 
 // Create an option element for each team and append it to the respective select elements
 let selectTeam = document.getElementById("teamFilter");
@@ -181,10 +227,10 @@ document
     )[0].innerText = `Empates: ${adversaryData.Empates}`;
     document.getElementsByClassName(
       "resultGoalsAdversary1"
-    )[0].innerText = `Gols ${team1}: ${adversaryData.GolsPrimeiro}}`;
+    )[0].innerText = `Gols ${team1}: ${adversaryData.GolsPrimeiro}`;
     document.getElementsByClassName(
       "resultGoalsAdversary2"
-    )[0].innerText = `Gols ${team2}: ${adversaryData.GolsSegundo}}}`;
+    )[0].innerText = `Gols ${team2}: ${adversaryData.GolsSegundo}`;
 
     // Show the adversary result and hide the others
     document.getElementById("resultAdversary").style.display = "block";
