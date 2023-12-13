@@ -103,6 +103,13 @@ form {
   text-align: left;
 }
 
+.total-score-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 /* Team name and date */
 .team-name,
 .manager-name
