@@ -162,6 +162,9 @@ document
   .addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    var parentElement = document.querySelector('#tbody-result');
+    parentElement.innerHTML = '';
+
     var year = document.getElementById("yearFilterTable").value;
     // Perform the search
 
