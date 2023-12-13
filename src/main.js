@@ -196,25 +196,33 @@ document
       ];
     });
 
-    // Create and append the rows to the table
-    for (var i = 0; i < arrayedRows.length; i++) {
-      var row = document.createElement("tr");
+// Create and append the rows to the table
+for (var i = 0; i < arrayedRows.length; i++) {
+  var row = document.createElement("tr");
 
-      // Add the placement as the first cell
-      var placementCell = document.createElement("td");
-      placementCell.innerText = i + 1 + "º";
-      row.appendChild(placementCell);
+  // Add the placement as the first cell
+  var placementCell = document.createElement("td");
+  placementCell.innerText = i + 1 + "º";
+  row.appendChild(placementCell);
 
-      // Add the other cells
-      for (var j = 0; j < arrayedRows[i].length; j++) {
-        var cell = document.createElement("td");
-        cell.innerText = arrayedRows[i][j];
-        row.appendChild(cell);
-      }
+  // Add the other cells
+  for (var j = 0; j < arrayedRows[i].length; j++) {
+    var cell = document.createElement("td");
+    cell.innerText = arrayedRows[i][j];
+    row.appendChild(cell);
+  }
 
-      // Append the row to the table
-      document.getElementById("tbody-result").appendChild(row);
-    }
+  // Check if the row is in the first 4 or last 4
+  if (i < 4) {
+    row.className = 'blue-row';
+  } else if (i >= arrayedRows.length - 4) {
+    row.className = 'red-row';
+  }
+
+  // Append the row to the table
+  document.getElementById("tbody-result").appendChild(row);
+}
+
     // Show the table result and hide the others
     document.getElementById("resultTeam").style.display = "none";
     document.getElementById("resultTable").style.display = "block";

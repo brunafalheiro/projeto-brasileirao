@@ -227,3 +227,11 @@ button:hover {
 .button-not-selected:hover {
   background-color: #00300b;
 }
+
+.blue-row {
+  background-color: rgba(0, 0, 255, 0.4);
+}
+
+.red-row {
+  background-color: rgba(255, 0, 0, 0.4);
+}
