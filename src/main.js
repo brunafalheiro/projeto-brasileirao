@@ -258,6 +258,28 @@ document
   });
 
 document.getElementById('formManager').addEventListener('submit', async function(e) {
+    const team = document.getElementById("teamManager").value;
+    document.getElementById("selectedTeamManager").innerText = `${team}`;
+    const teste = [{nome: "A"}, {nome: "B"}, {nome: "C"}];
+       // Seleciona o elemento pai
+       var parentElement = document.querySelector('.manager');
+
+       // Limpa o conteúdo existente
+       parentElement.innerHTML = '';
+   
+       // Para cada item em teste, cria um novo elemento filho
+       for (var i = 0; i < teste.length; i++) {
+           var div = document.createElement('div');
+           div.className = 'manager-div';
+   
+           var p = document.createElement('p');
+           p.className = 'manager-name';
+           p.innerText = teste[i].nome;
+   
+           div.appendChild(p);
+           parentElement.appendChild(div);
+       }
+    
     e.preventDefault();
     document.getElementById("resultAdversary").style.display = "none";
     document.getElementById("resultTable").style.display = "none";
@@ -270,7 +292,6 @@ document.getElementById('formCards').addEventListener('submit', async function(e
     const card = document.getElementById("cardsInput").value;
     document.getElementById("selectedCard").innerText = `Cartão ${card}`;
 
-    console.log(card)
     // Arbitrary data for cards
     const teste = [{nome: "A", cartoes: 6}, {nome: "B", cartoes: 8}, {nome: "C", cartoes: 4}];
 

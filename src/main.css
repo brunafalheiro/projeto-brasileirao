@@ -39,7 +39,6 @@ form {
   }
 }
 
-
 /* Result container */
 .div-result {
   background-color: #00300b;
@@ -64,7 +63,6 @@ form {
   }
 }
 
-
 /* Result content container */
 .div-result .container {
   padding: 24px;
@@ -85,7 +83,8 @@ form {
 .goals-made-div,
 .goals-taken-div,
 .total-goals-div,
-.cards-div {
+.cards-div,
+.manager-div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,17 +95,13 @@ form {
 
 /* Objectives */
 .obj {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-}
-
-/* Manager section */
-.manager-div {
-  margin-bottom: 0;
 }
 
 /* Team name and date */
 .team-name,
+.manager-name
 .date {
   font-weight: bold;
   font-size: 20px;
@@ -169,7 +164,7 @@ form > *:last-child {
 label {
   font-weight: bold;
   color: #1a1a1a;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Select and button styles */
