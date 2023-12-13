@@ -6,17 +6,12 @@ for (let year = 2003; year <= 2022; year++) {
 
 // Create an option element for each year and append it to the select elements
 let selectTable = document.getElementById('yearFilterTable');
-let selectTeams = document.getElementById('yearFilterTeams');
-let selects = [selectTable, selectTeams];
-
-selects.forEach(select => {
-    for (let i = yearOptions.length - 1; i >= 0; i--) {
-        let option = document.createElement('option');
-        option.value = yearOptions[i];
-        option.text = yearOptions[i];
-        select.appendChild(option);
-    }
-});
+for (let i = yearOptions.length - 1; i >= 0; i--) {
+    let option = document.createElement('option');
+    option.value = yearOptions[i];
+    option.text = yearOptions[i];
+    selectTable.appendChild(option);
+}
 
 // Array of team options
 let teamOptions = ["Team1", "Team2", "Team3", "Team4", "Team5"];
@@ -66,12 +61,10 @@ document.getElementById('btnAdversary').addEventListener('click', function() {
 document.getElementById('formTeams').addEventListener('submit', function(e) {
     e.preventDefault();
   
-    var year = document.getElementById('yearFilterTeams').value;
     var team = document.getElementById('teamFilter').value;
     // Perform the search
 
     document.getElementsByClassName('teamSelectedTeam')[0].innerText = `${team}`;
-    document.getElementsByClassName('yearSelectedTeam')[0].innerText = ` (${year})`;
 
     // Arbitrary team data
     var teamData = ['78', '62', '24', '38']; // [total points, goals scored, goals conceded, goal difference]
